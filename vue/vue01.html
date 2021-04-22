@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../js/vue.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    
+    <div style="padding-left: 20%;">
+        <div id="app">{{message}}</div>
+        <div id="app2">
+            <ul>
+                <li v-for="item in movies">
+                    {{item}}
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <script>
+        const app = new Vue({
+            el: '#app', // 用于挂载要管理的元素
+            data: { // 定义数据
+                message: "你好"
+            }
+        });
+
+        const app2 = new Vue({
+            el: '#app2', // 用于挂载要管理的元素
+            data: { // 定义数据
+                message: "电影",
+                movies: [
+                    '电影1','电影2',
+                    '电影3','电影4'
+                ]
+            }
+        });
+    </script>
+</body>
+</html>

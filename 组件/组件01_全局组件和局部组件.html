@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../js/vue.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div style="padding-left: 20%;">
+        <div id="app">
+            <cpn></cpn>
+            <cpn2></cpn2>
+        </div>
+    </div>
+
+
+    <script>
+        // 创建组件构造器
+        const cpnC = Vue.extend({
+            template: `
+                <div>
+                    <h2>我是标题</h2>
+                    <p>我是内容</p>
+                    <p>我是内容</p>
+                </div>
+            `
+        });
+        const cpnC2 = Vue.extend({
+            template: `
+                <div>
+                    <h2>我是标题2</h2>
+                    <p>我是内容2</p>
+                    <p>我是内容2</p>
+                </div>
+            `
+        });
+        // 注册组件(全局组件--可以在多个vue实例下使用)
+        Vue.component('cpn',cpnC)
+
+        const app = new Vue({
+            el: '#app', // 用于挂载要管理的元素
+            data: { // 定义数据
+            },
+            components: {   // 注册局部组件
+                cpn2: cpnC2
+            }
+        });
+
+    </script>
+</body>
+</html>

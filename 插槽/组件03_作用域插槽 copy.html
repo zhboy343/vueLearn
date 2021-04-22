@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../js/vue.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div style="padding-left: 20%;">
+        <div id="app">
+            <cpn>
+                <!-- slot和slot-scope用法(旧) -->
+                <template slot="header" slot-scope="slot">
+                    <div v-for="item in slot.data">
+                        {{item}}
+                    </div>
+                </template>
+            </cpn>
+
+            <cpn>
+                <!-- v-slot用法 只能写在template标签中-->
+                <template v-slot:header="slot">
+                    <span v-for="item in slot.data">
+                        {{item}} --
+                    </span>
+                </template>
+            </cpn>
+        </div>
+        
+    </div>
+
+    <template id="cpn">
+        <div>
+            <h3>这是子组件</h3>
+            <!-- 此处data取名无限制,只能小写 -->
+            <slot name="header" :data="pLanguages">
+                <!-- <div v-for="item in pLanguages">
+                    {{item}}
+                </div> -->
+            </slot>
+        </div>
+    </template>
+
+
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                name: "这是根组件"
+            },
+            components: {
+                cpn: {
+                    template: `#cpn`,
+                    data() {
+                        return {
+                            pLanguages: [
+                                'JavaScript', 'Python', 'Swift', 'Go', 'C++'
+                            ]
+                        }
+                    },
+                    methods: {
+                    },
+                }
+            },
+            methods: {
+            }
+        });
+
+    </script>
+</body>
+</html>

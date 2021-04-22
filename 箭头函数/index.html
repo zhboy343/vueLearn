@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../js/vue.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const a = function() {
+        }
+
+        // 箭头函数
+        // const b = (参数列表) => {
+        // }
+        // 无参数，无返回值
+        const c = () => {
+        }
+        // 有参数--多参数
+        const d = (num1, num2) => {
+        }
+        // 一个参数,可以省略小括号
+        const e = num => {
+
+        }
+        // 多指令
+        const f = () => {
+            console.log('111')
+            console.log('www')
+        }
+        // 单指令,可以省略大括号
+        const g = () => console.log('233');
+
+
+        // 箭头函数 this的使用
+        // 箭头函数的this是向外层作用域层层查找，直到有this定义
+        const obj = {
+            aaa() {
+                setTimeout(function() {
+                    // 打印是this是window
+                    console.log(1)
+                    console.log(this)
+
+                    setTimeout(() => {
+                        // 打印是this是window
+                        console.log(3)
+                        console.log(this)
+                    })
+                })
+
+                setTimeout(() => {
+                    // 打印的是obj对象
+                    console.log(2)
+                    console.log(this)
+
+                    setTimeout(function() {
+                        // 打印是this是window
+                        console.log(4)
+                        console.log(this)
+                    })
+
+                    setTimeout(() => {
+                        // 打印是this是obj
+                        console.log(5)
+                        console.log(this)
+                    })
+                })
+            }
+        }
+
+        obj.aaa()
+    </script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../js/vue.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div style="padding-left: 20%;">
+        <div id="app">
+            <!-- 设置监听事件 -->
+            <cpn></cpn>
+            <cpn></cpn>
+            <cpn ref="aaa"></cpn>
+            <button @click="testf">访问子组件</button>
+        </div>
+        
+    </div>
+
+
+    <script>
+        const app = new Vue({
+            el: '#app', // 用于挂载要管理的元素
+            data: { // 定义数据
+            },
+            components: {   // 注册局部组件
+                cpn: {
+                    template: `
+                        <div>
+                            <div v-for="item in fruits">
+                                {{item.name}}
+                            </div>
+                        </div>
+                    `,
+                    data() {
+                        return {
+                            fruits: [
+                                {id: '01', name: '香蕉'},
+                                {id: '02', name: '苹果'},
+                                {id: '03', name: '哈密瓜'},
+                                {id: '04', name: '西瓜'},
+                            ]
+                        }
+                    },
+                    methods: {
+                        testc() {
+                            console.log("访问子组件！！！");
+                        }
+                    }
+                }
+            },
+            methods: {
+                testf() {
+                    // 使用children访问子组件
+                    this.$children[0].testc()
+                    // 使用refs访问子组件--可以精准访问
+                    this.$refs.aaa.testc()
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>

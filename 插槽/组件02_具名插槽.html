@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../js/vue.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div style="padding-left: 20%;">
+        <div id="app">
+            <cpn>
+                <!-- slot用法(旧) -->
+                <button slot="center">ddddd</button>
+                
+                <!-- v-slot用法(旧) -->
+                <template v-slot:right>
+                    <div>自定义插槽右</div>
+                </template>
+            </cpn>
+        </div>
+        
+    </div>
+
+    <template id="cpn">
+        <div>
+            <h3>这是子组件</h3>
+            <div v-for="item in fruits">
+                {{item.name}}
+            </div>
+            <!-- 多个插槽 -->
+            <slot name="left">默认插槽左</slot>
+            <slot name="center">默认插槽中</slot>
+            <slot name="right">默认插槽右</slot>
+        </div>
+    </template>
+
+
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                name: "这是根组件"
+            },
+            components: {
+                cpn: {
+                    template: `#cpn`,
+                    data() {
+                        return {
+                            fruits: [
+                                {id: '01', name: '香蕉'},
+                                {id: '02', name: '苹果'},
+                                {id: '03', name: '哈密瓜'},
+                                {id: '04', name: '西瓜'},
+                            ]
+                        }
+                    },
+                    methods: {
+                    },
+                }
+            },
+            methods: {
+            }
+        });
+
+    </script>
+</body>
+</html>
