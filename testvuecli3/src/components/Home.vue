@@ -30,10 +30,12 @@ export default {
     distoryed() {
       // 路由跳转之后会销毁，此时会调用此方法
     },
+    // 注:此方法只有在该组件未被销毁(使用keep-alive时)才生效
     activated() {
       // 当页面活跃时调用(路由跳转到此页面时)
       // console.log("活跃")
     },
+    // 注:此方法只有在该组件未被销毁(使用keep-alive时)才生效
     deactivated() {
       // 当页面不处于活跃时调用(路由由此页面跳转到其他页面时)
       // console.log('不活跃')
