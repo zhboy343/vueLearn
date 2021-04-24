@@ -62,7 +62,6 @@ const routes = [
     },
     // 路由独享的守卫
     beforeEnter: (to, form, next) => {
-      console.log('sssssss');
       next()
     }
   },
