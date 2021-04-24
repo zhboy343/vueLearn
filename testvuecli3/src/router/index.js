@@ -20,7 +20,6 @@ const routes = [
     path: '/',  // / 可加可不加
     // 重定向
     redirect: '/home'
-
   },
   // 配置Home映射关系
   {
@@ -61,6 +60,11 @@ const routes = [
     meta: {
       title: '关于'
     },
+    // 路由独享的守卫
+    beforeEnter: (to, form, next) => {
+      console.log('sssssss');
+      next()
+    }
   },
   // 配置User映射关系(动态路由)
   {
@@ -94,12 +98,16 @@ const router = new VueRouter({
   routes
 })
 
-// 全局导航守卫
+// 全局导航守卫(前置首位-在路由跳转前调用)---监听路由的跳转
 router.beforeEach((to, from, next) => {
   // 从from跳转到to
   // 实现功能，路由跳转时，修改页面title
   document.title = to.meta.title
   next()
+})
+// 全局导航守卫(后置钩子-在路由跳转后调用)
+router.afterEach((to, from) => {
+  console.log('from:' + from.meta.title + '  to:' + to.meta.title)
 })
 
 // 4.导出路由对象,在mian.js的Vue中使用
