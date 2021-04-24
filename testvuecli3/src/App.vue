@@ -39,9 +39,14 @@
     <!-- 通过botton -->
     <button @click="ProfileClick">lisi</button>
 
-
-    <!-- 占位,路由跳转后内容显示位置 -->
-    <router-view></router-view>
+    <!-- 使用keep-alive 之后, 路由跳转后组件并不会被销毁,下次跳转回来会继续使用
+      Home组件下还存在router-view。
+      是否销毁和创建可通过是否调用created,distoryed生命周期函数确定
+    -->
+    <keep-alive>
+      <!-- 占位,路由跳转后内容显示位置 -->
+      <router-view></router-view>
+    </keep-alive>
   </div>
 </template>
 

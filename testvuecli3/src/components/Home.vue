@@ -7,7 +7,9 @@
       <router-link to="/home/news1">新闻1</router-link>
       <br>
       <router-link to="/home/news2">新闻2</router-link>
-      <router-view></router-view>
+      <keep-alive>
+        <router-view></router-view>
+      </keep-alive>
   </div>
 </template>
 
