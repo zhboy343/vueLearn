@@ -107,7 +107,7 @@ router.beforeEach((to, from, next) => {
 })
 // 全局导航守卫(后置钩子-在路由跳转后调用)
 router.afterEach((to, from) => {
-  console.log('from:' + from.meta.title + '  to:' + to.meta.title)
+  // console.log('from:' + from.meta.title + '  to:' + to.meta.title)
 })
 
 // 4.导出路由对象,在mian.js的Vue中使用
