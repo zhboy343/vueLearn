@@ -7,6 +7,9 @@
       <router-link to="/home/news1">新闻1</router-link>
       <br>
       <router-link to="/home/news2">新闻2</router-link>
+      <!-- 若此处不加keep-alive则之保留由当前(因为上一层App.vue有kpae,若新闻1/2来回切换，
+      则切换前的销毁,切换后的创建。若上层切换(切换about或其他)则会显示当选中的前子组件(新闻1/2)不活跃)
+      总之注意层级 -->
       <keep-alive>
         <router-view></router-view>
       </keep-alive>
