@@ -13,7 +13,13 @@
 <script>
 
 export default {
-    name: "Profile"
+    name: "Profile",
+    created() {
+      console.log("Profile创建")
+    },
+    distoryed() {
+      console.log("Profile销毁")
+    }
 }
 </script>
 

@@ -17,6 +17,12 @@ export default {
         return this.$route.params.userId
       }
     },
+    created() {
+      console.log("User创建")
+    },
+    distoryed() {
+      console.log("User销毁")
+    },
     beforeRouteEnter(to, from, next) {
     // 在渲染该组件的对应路由被 confirm 前调用
     // 不！能！获取组件实例 `this`

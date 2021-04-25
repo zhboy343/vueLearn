@@ -10,7 +10,7 @@
       name: "HomeNew1",
       created() {
         // 当组件被创建出后调用(每次路由跳转到此组件时,会调用此方法)
-        // console.log("新闻111创建")
+        console.log("新闻111创建")
       },
       activated() {
         // 当页面活跃时调用(路由跳转到此页面时)
@@ -21,7 +21,7 @@
         // console.log('新闻111不活跃')
       },
       distoryed() {
-        // console.log("新闻111销毁")
+        console.log("新闻111销毁")
       },
   }
 </script>

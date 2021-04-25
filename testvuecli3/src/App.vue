@@ -42,8 +42,10 @@
     <!-- 使用keep-alive 之后, 路由跳转后组件并不会被销毁,下次跳转回来会继续使用
       Home组件下还存在router-view。
       是否销毁和创建可通过是否调用created,distoryed生命周期函数确定
+      include-字符串或正则(可以根据组件name),只有匹配的组件才会被缓存
+      exclude-字符串或正则(可以根据组件name),匹配的组件不会被缓存
     -->
-    <keep-alive>
+    <keep-alive exclude="Profile">
       <!-- 占位,路由跳转后内容显示位置 -->
       <router-view></router-view>
     </keep-alive>
