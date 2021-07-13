@@ -18,14 +18,19 @@ export default {
     path: String,
   },
   data() {
-    return {
-      isActive: false,
-    };
+    return {};
   },
   components: {},
+  // 计算属性
+  computed: {
+    isActive() {
+      // this.$router.path -- 获取当前活跃路由的path
+      // indexOf(this.path) -- 比较是否包含当前的path
+      return this.$route.path.indexOf(this.path) !== -1;
+    },
+  },
   methods: {
     itemClick() {
-      console.log(this.path);
       this.$router.push(this.path);
     },
   },
