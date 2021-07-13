@@ -1,9 +1,6 @@
 <template>
   <div id="tar-bar">
-    <div class="tab-bar-item">首页</div>
-    <div class="tab-bar-item">分类</div>
-    <div class="tab-bar-item">购物车</div>
-    <div class="tab-bar-item">我的</div>
+    <slot></slot>
   </div>
 </template>
 
@@ -27,10 +24,5 @@ export default {
 
   /** x偏移量 y偏移量  虚化 范围 颜色*/
   box-shadow: 0 -1px 1px rgba(100, 100, 100, 0.1);
-}
-.tab-bar-item {
-  flex: 1;
-  text-align: center;
-  height: 49px;
 }
 </style>
