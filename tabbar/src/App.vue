@@ -3,7 +3,7 @@
     <!-- 占位-用于显示组件页面 -->
     <router-view></router-view>
     <TabBar>
-      <TabBarItem path="/home">
+      <TabBarItem path="/home" activeColor="#204288">
         <img slot="item-icon" src="./assets/img/tarbar/home.svg" />
         <img
           slot="item-icon-active"
@@ -11,7 +11,7 @@
         />
         <div slot="item-text">首页</div>
       </TabBarItem>
-      <TabBarItem path="/category">
+      <TabBarItem path="/category" activeColor="#204288">
         <img slot="item-icon" src="./assets/img/tarbar/category.svg" />
         <img
           slot="item-icon-active"
@@ -19,7 +19,7 @@
         />
         <div slot="item-text">分类</div>
       </TabBarItem>
-      <TabBarItem path="/shopcart">
+      <TabBarItem path="/shopcart" activeColor="#ff5777">
         <img slot="item-icon" src="./assets/img/tarbar/shopcart.svg" />
         <img
           slot="item-icon-active"

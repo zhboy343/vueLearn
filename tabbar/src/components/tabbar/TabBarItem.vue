@@ -2,7 +2,7 @@
   <div class="tab-bar-item" @click="itemClick">
     <slot v-if="!isActive" name="item-icon"></slot>
     <slot v-if="isActive" name="item-icon-active"></slot>
-    <div :class="{ active: isActive }">
+    <div :style="activeStyle">
       <!-- 直接在slot上加动态class不生效
         -因为插槽最后会被插槽内的语句直接替换掉
         -在外层div加 -->
@@ -16,6 +16,10 @@ export default {
   name: "TarBarItem",
   props: {
     path: String,
+    activeColor: {
+      type: String,
+      default: "#43BF88",
+    },
   },
   data() {
     return {};
@@ -27,6 +31,9 @@ export default {
       // this.$router.path -- 获取当前活跃路由的path
       // indexOf(this.path) -- 比较是否包含当前的path
       return this.$route.path.indexOf(this.path) !== -1;
+    },
+    activeStyle() {
+      return this.isActive ? { color: this.activeColor } : {};
     },
   },
   methods: {
