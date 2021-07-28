@@ -65,6 +65,35 @@
     }, (error) =>{
 
     })
+
+
+    // promise all使用
+    /*
+      使用场景，当需要多个异步请求都完成时，才进行处理的情况
+      then中传入参数result为数据，包含每个请求的返回结果
+    */
+    Promise.all([
+      new Promise((resolve,reject) =>{
+        // 请求1
+        setTimeout(() =>{
+          const data1 = "1111"
+          resolve(data1)
+        }, 1000)
+      }),
+
+      new Promise((resolve,reject) =>{
+        // 请求2
+        setTimeout(() =>{
+          const data2 = "222"
+          resolve(data2)
+        }, 6000)
+      })
+    ]).then((result) =>{
+      // result[0] --请求1 返回结果
+      console.log(result[0])
+      // result[1] --请求2 返回结果
+      console.log(result[1])
+    })
   </script>
 </body>
 </html>
