@@ -49,6 +49,22 @@
     }).catch((err) =>{
       console.log(err)
     })
+
+
+
+    // promise第二种写法
+    /*
+      不写catch，then中传入2个函数，then(函数一,函数二)
+      函数一:调用 resolve()执行
+      函数二:调用 reject()执行
+    */
+    new Promise((resolve,reject) =>{
+
+    }).then((data) =>{
+
+    }, (error) =>{
+
+    })
   </script>
 </body>
 </html>
