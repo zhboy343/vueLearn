@@ -1,6 +1,6 @@
 <template>
   <div id="app2">
-    <h2>{{ message }}</h2>
+    <h2>{{ $store.state.message }}</h2>
   </div>
 </template>
 

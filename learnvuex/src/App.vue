@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h2>{{ message }}</h2>
+    <h2>{{ $store.state.message }}</h2>
     <App2></App2>
   </div>
 </template>
@@ -14,9 +14,7 @@ export default {
     App2,
   },
   data() {
-    return {
-      message: "ssssss",
-    };
+    return {};
   },
 };
 </script>
