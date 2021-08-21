@@ -7,6 +7,7 @@
     <button @click="upMessageA">修改名称mutationsA和message</button>
     <h2>{{ $store.state.b.messageB }}</h2>
     <button @click="upMessageByb">异步修改名称mutationsB</button>
+    <button @click="dxjg">对象解构</button>
     <h2>异步操作-----------------</h2>
     <h2>{{ $store.state.info }}</h2>
     <button @click="upInfoNameyb">异步操作修改名称mutations</button>
@@ -98,6 +99,11 @@ export default {
     // 异步修改messageB
     upMessageByb() {
       this.$store.dispatch("upMessageByb");
+    },
+
+    // 对象解构
+    dxjg() {
+      this.$store.dispatch("dxjg");
     },
   },
 };

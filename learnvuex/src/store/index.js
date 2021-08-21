@@ -33,7 +33,14 @@ const modulesB = {
         // 这里的commit只能调用自身模块内的mutations
         context.commit('upMessageB')
       }, 1000);
-
+    },
+    // 小知识--对象解构
+    dxjg({ state, commit, rootState }) {
+      // 只取context中几个属性
+      if (rootState.message == 1000) {
+        console.log(state.messageB)
+        commit('upMessageB')
+      }
     }
   },
 }
