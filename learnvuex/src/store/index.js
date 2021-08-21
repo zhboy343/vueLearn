@@ -11,9 +11,14 @@ export default createStore({
     },
     decrement(state) {
       state.message++
+    },
+    // 传入数据 乘以message再返回
+    addCount(state, count) {
+      state.message += count
     }
   },
   actions: {
+    // 有异步操作时，先在此进行操作，得到结果后在进行mutation
   },
   modules: {
   }
