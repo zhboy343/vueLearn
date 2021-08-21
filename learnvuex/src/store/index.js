@@ -15,6 +15,11 @@ export default createStore({
     // 传入数据 乘以message再返回
     addCount(state, count) {
       state.message += count
+    },
+    // 传入数据 乘以message再返回
+    addCount2(state, data) {
+      console.log(data)
+      state.message += data.count1 += data.count2
     }
   },
   actions: {

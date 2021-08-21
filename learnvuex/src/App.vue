@@ -5,7 +5,7 @@
     <button @click="add()">+</button>
     <button @click="sub()">-</button>
     <button @click="addCount(5)">+5</button>
-    <button @click="addCount(10)">+10</button>
+    <button @click="addCount2(10, 5)">+10 +5</button>
     <App2></App2>
   </div>
 </template> 
@@ -28,8 +28,17 @@ export default {
     sub() {
       this.$store.commit("decrement");
     },
-    addCount(count) {
+    // 提交方式1
+    addCount1(count) {
       this.$store.commit("addCount", count);
+    },
+    // 提交方式2
+    addCount2(count1, count2) {
+      this.$store.commit({
+        type: "addCount2",
+        count1: count1,
+        count2: count2,
+      });
     },
   },
 };
