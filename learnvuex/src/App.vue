@@ -1,6 +1,12 @@
 <template>
   <div id="app">
     <h2>App------------------</h2>
+    <h2>响应式原理-----------------</h2>
+    <h2>{{ $store.state.info }}</h2>
+    <button @click="upName">修改名称--名称是初始化定义好的</button>
+    <button @click="upAddress">添加地址--地址初始化没有定义</button>
+    <button @click="delAges">删除年龄--年龄是初始化定义好的</button>
+    <h2>基础------------------</h2>
     <h2>{{ $store.state.message }}</h2>
     <button @click="add()">+</button>
     <button @click="sub()">-</button>
@@ -39,6 +45,19 @@ export default {
         count1: count1,
         count2: count2,
       });
+    },
+    // 响应式原理
+    // 修改名称
+    upName() {
+      this.$store.commit("upName");
+    },
+    // // 添加地址
+    upAddress() {
+      this.$store.commit("upAddress");
+    },
+    // 删除地址
+    delAges() {
+      this.$store.commit("delAges");
     },
   },
 };
