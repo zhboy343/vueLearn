@@ -18,6 +18,7 @@
 
 <script>
 import App2 from "./components/App2.vue";
+import { INCREMENT } from "./store/mutations-types";
 
 export default {
   name: "App",
@@ -29,7 +30,7 @@ export default {
   },
   methods: {
     add() {
-      this.$store.commit("increment");
+      this.$store.commit(INCREMENT);
     },
     sub() {
       this.$store.commit("decrement");

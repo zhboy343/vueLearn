@@ -1,4 +1,7 @@
 import { createStore } from 'vuex'
+import {
+  INCREMENT
+} from './mutations-types'
 
 export default createStore({
   state: {
@@ -10,7 +13,7 @@ export default createStore({
   },
   mutations: {
     // 修改vuex下属性时，各个组件将修改操作提交到此，再进行修改
-    increment(state) {
+    [INCREMENT](state) {
       state.message++
     },
     decrement(state) {
