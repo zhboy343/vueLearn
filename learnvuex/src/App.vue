@@ -1,6 +1,12 @@
 <template>
   <div id="app">
     <h2>App------------------</h2>
+    <h2>module-----------------</h2>
+    <h2>{{ $store.state.a.messageA }}</h2>
+    <h2>state中属性名称可重复:{{ $store.state.a.message }}</h2>
+    <button @click="upMessageA">修改名称mutationsA和message</button>
+    <h2>{{ $store.state.b.messageB }}</h2>
+    <button @click="upMessageByb">异步修改名称mutationsB</button>
     <h2>异步操作-----------------</h2>
     <h2>{{ $store.state.info }}</h2>
     <button @click="upInfoNameyb">异步操作修改名称mutations</button>
@@ -81,6 +87,17 @@ export default {
         // 处理返回结果
         console.log(data);
       });
+    },
+
+    // 模块模块处理
+    // 修改messageA和message
+    upMessageA() {
+      // 注意不要在模块中和非模块中mutations起相同名称
+      this.$store.commit("upMessageA");
+    },
+    // 异步修改messageB
+    upMessageByb() {
+      this.$store.dispatch("upMessageByb");
     },
   },
 };

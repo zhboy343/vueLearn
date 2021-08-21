@@ -3,6 +3,41 @@ import {
   INCREMENT
 } from './mutations-types'
 
+// 模块化--创建模块
+const modulesA = {
+  state: {
+    messageA: '这是模块A的state',
+    message: 2000
+  },
+  mutations: {
+    upMessageA(state) {
+      state.messageA = '修改模块A的state'
+      state.message = 1500
+    }
+  },
+  actions: {},
+}
+const modulesB = {
+  state: {
+    messageB: '这是模块B的state'
+  },
+  mutations: {
+    upMessageB(state) {
+      state.messageB = '修改模块B的state'
+    }
+  },
+  actions: {
+    upMessageByb(context) {
+      console.log(context)
+      setTimeout(() => {
+        // 这里的commit只能调用自身模块内的mutations
+        context.commit('upMessageB')
+      }, 1000);
+
+    }
+  },
+}
+
 export default createStore({
   state: {
     message: 1000,
@@ -100,6 +135,20 @@ export default createStore({
 
     }
   },
+  // vuex中的计算属性
+  getters: {
+    aaa(state) {
+      return message + 100
+    }
+  },
   modules: {
+    /*
+    模块化
+    除了页面展示state属性写法改变，调用其他和之前写法一样，
+    调用时不需再中间加上 .模块名
+    所以，除了state属性名称，mutations等属性里的名称不要重复
+    */
+    a: modulesA,
+    b: modulesB,
   }
 })
