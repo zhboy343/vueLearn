@@ -1,6 +1,13 @@
 <template>
   <div id="app">
     <h2>App------------------</h2>
+    <h2>异步操作-----------------</h2>
+    <h2>{{ $store.state.info }}</h2>
+    <button @click="upInfoNameyb">异步操作修改名称mutations</button>
+    <button @click="upInfoNameyb2">异步操作修改名称actions</button>
+    <button @click="upInfoNameyb3">
+      异步操作修改名称actions--修改完成后进行通知
+    </button>
     <h2>响应式原理-----------------</h2>
     <h2>{{ $store.state.info }}</h2>
     <button @click="upName">修改名称--名称是初始化定义好的</button>
@@ -10,7 +17,7 @@
     <h2>{{ $store.state.message }}</h2>
     <button @click="add()">+</button>
     <button @click="sub()">-</button>
-    <button @click="addCount(5)">+5</button>
+    <button @click="addCount1(5)">+5</button>
     <button @click="addCount2(10, 5)">+10 +5</button>
     <App2></App2>
   </div>
@@ -59,6 +66,21 @@ export default {
     // 删除地址
     delAges() {
       this.$store.commit("delAges");
+    },
+
+    // 异步操作
+    // 修改名称
+    upInfoNameyb() {
+      this.$store.commit("upInfoNameyb");
+    },
+    upInfoNameyb2() {
+      this.$store.dispatch("upInfoNameyb2");
+    },
+    upInfoNameyb3() {
+      this.$store.dispatch("upInfoNameyb3", "xxxxx").then((data) => {
+        // 处理返回结果
+        console.log(data);
+      });
     },
   },
 };
