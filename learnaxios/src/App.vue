@@ -4,6 +4,7 @@
     <button @click="getData">调用axios请求--无参</button>
     <button @click="getData2">调用axios请求--有参</button>
     <button @click="getData3">调用axios请求--多请求都完成后再处理结果</button>
+    <button @click="getData4">调用axios请求--全局配置</button>
   </div>
 </template>
 
@@ -65,6 +66,19 @@ export default {
             console.log(res2);
           })
         )
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+
+    // 调用axios请求--全局配置
+    getData4() {
+      axios({
+        url: "/home/multidata",
+      })
+        .then((res) => {
+          console.log(res);
+        })
         .catch((error) => {
           console.log(error);
         });
