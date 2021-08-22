@@ -5,14 +5,26 @@
     <button @click="getData2">调用axios请求--有参</button>
     <button @click="getData3">调用axios请求--多请求都完成后再处理结果</button>
     <button @click="getData4">调用axios请求--全局配置</button>
+    <button @click="getData5">调用axios请求--封装1</button>
+    <button @click="getData6">调用axios请求--封装2</button>
+    <button @click="getData7">调用axios请求--封装2_2</button>
+    <div>封装{{ code }}返回结果显示：</div>
+    <div>{{ data }}</div>
   </div>
 </template>
 
 <script>
 import axios from "axios";
+import { axios1, axios2 } from "./network/axiosRequest";
 
 export default {
   name: "App",
+  data() {
+    return {
+      data: "",
+      code: "",
+    };
+  },
   components: {},
   methods: {
     // 调用axios请求--无参
@@ -81,6 +93,51 @@ export default {
         })
         .catch((error) => {
           console.log(error);
+        });
+    },
+
+    // 调用axios请求--封装1
+    getData5() {
+      const config = {
+        url: "/home/multidata",
+      };
+      axios1(
+        config,
+        (res) => {
+          this.data = res;
+          this.code = "1";
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
+    },
+    // 调用axios请求--封装2
+    getData6() {
+      const config = {
+        url: "/home/multidata",
+      };
+      axios2(config)
+        .then((res) => {
+          this.data = res;
+          this.code = "2";
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    // 调用axios请求--封装2_2
+    getData7() {
+      const config = {
+        url: "/home/multidata",
+      };
+      axios2(config)
+        .then((res) => {
+          this.data = res;
+          this.code = "2_2";
+        })
+        .catch((err) => {
+          console.log(err);
         });
     },
   },
