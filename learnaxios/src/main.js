@@ -26,3 +26,20 @@ axios.defaults.baseURL = 'http://123.207.32.32:8000' // 设置请求根路径
   get请求----params{参数}
   post请求---data{参数}
 */
+
+/*
+  axios实例
+  之前都是使用的全局axios --缺点：不能根据不同接口设置不同的全局配置
+*/
+// 创建axios实例
+const axios1 = axios.create({
+  // 设置当前实例的全局配置
+  baseURL: 'http://123.207.32.32:8000',
+  timeout: 5000
+})
+// 使用实例
+axios1({
+  url: '/home/multidata'
+}).then(res => {
+  console.log(res)
+})
