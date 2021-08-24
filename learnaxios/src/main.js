@@ -41,5 +41,5 @@ const axios1 = axios.create({
 axios1({
   url: '/home/multidata'
 }).then(res => {
-  console.log(res)
+  // console.log(res)
 })

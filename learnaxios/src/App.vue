@@ -8,6 +8,7 @@
     <button @click="getData5">调用axios请求--封装1</button>
     <button @click="getData6">调用axios请求--封装2</button>
     <button @click="getData7">调用axios请求--封装2_2</button>
+    <button @click="getData8">调用axios请求--axios的拦截器</button>
     <div>封装{{ code }}返回结果显示：</div>
     <div>{{ data }}</div>
   </div>
@@ -15,7 +16,7 @@
 
 <script>
 import axios from "axios";
-import { axios1, axios2 } from "./network/axiosRequest";
+import { axios1, axios2, axios3 } from "./network/axiosRequest";
 
 export default {
   name: "App",
@@ -135,6 +136,24 @@ export default {
         .then((res) => {
           this.data = res;
           this.code = "2_2";
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    // 调用axios请求--axios的拦截器
+    getData8() {
+      const config = {
+        url: "/home/multidata",
+        method: "post",
+        data: {
+          type: "123",
+        },
+      };
+      axios3(config)
+        .then((res) => {
+          this.data = res;
+          this.code = "3";
         })
         .catch((err) => {
           console.log(err);
